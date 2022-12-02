@@ -1,36 +1,43 @@
 package br.com.eventos.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.lang.NonNull;
+import java.io.Serializable;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
 
 @Entity // A classe será uma tabela no banco
-public class Evento {
+public class Evento implements Serializable {
 
-	@Id // Informando que a coluna no banco será um ID
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id// Informando que a coluna no banco será um ID
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // O valor será gerado automaticamente
-	private long codigo;
+	private Integer codigo;
 
-	@NonNull // Anotação para validação de nulo ou branco
+	//@NotNull // Anotação para validação de nulo ou branco
 	private String nome;
 
-	@NonNull // Anotação para validação de nulo ou branco
+	//@NotNull // Anotação para validação de nulo ou branco
 	private String local;
 
-	@NonNull // Anotação para validação de nulo ou branco
+	//@NotNull // Anotação para validação de nulo ou branco
 	private String data;
 
-	@NonNull // Anotação para validação de nulo ou branco
+	//@NotNull // Anotação para validação de nulo ou branco
 	private String horario;
 
-	public long getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
